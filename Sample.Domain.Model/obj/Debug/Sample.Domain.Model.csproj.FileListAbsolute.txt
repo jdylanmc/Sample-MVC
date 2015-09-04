@@ -1,9 +1,0 @@
-C:\git\snippets\webapi\Sample.Domain.Model\bin\Debug\Sample.Domain.Model.dll
-C:\git\snippets\webapi\Sample.Domain.Model\bin\Debug\Sample.Domain.Model.pdb
-C:\git\snippets\webapi\Sample.Domain.Model\bin\Debug\Newtonsoft.Json.dll
-C:\git\snippets\webapi\Sample.Domain.Model\bin\Debug\Newtonsoft.Json.xml
-C:\git\snippets\webapi\Sample.Domain.Model\obj\Debug\Sample.Domain.Model.csprojResolveAssemblyReference.cache
-C:\git\snippets\webapi\Sample.Domain.Model\obj\Debug\Sample.Domain.Model.dll
-C:\git\snippets\webapi\Sample.Domain.Model\obj\Debug\Sample.Domain.Model.pdb
-C:\git\snippets\webapi\Sample.Domain.Model\bin\Debug\log4net.dll
-C:\git\snippets\webapi\Sample.Domain.Model\bin\Debug\log4net.xml

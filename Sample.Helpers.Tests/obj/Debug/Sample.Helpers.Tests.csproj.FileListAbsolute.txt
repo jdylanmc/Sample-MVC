@@ -1,7 +1,0 @@
-C:\git\snippets\webapi\Sample.Helpers.Tests\bin\Debug\Sample.Helpers.Tests.dll
-C:\git\snippets\webapi\Sample.Helpers.Tests\bin\Debug\Sample.Helpers.Tests.pdb
-C:\git\snippets\webapi\Sample.Helpers.Tests\obj\Debug\Sample.Helpers.Tests.dll
-C:\git\snippets\webapi\Sample.Helpers.Tests\obj\Debug\Sample.Helpers.Tests.pdb
-C:\git\snippets\webapi\Sample.Helpers.Tests\bin\Debug\nunit.framework.dll
-C:\git\snippets\webapi\Sample.Helpers.Tests\bin\Debug\nunit.framework.xml
-C:\git\snippets\webapi\Sample.Helpers.Tests\obj\Debug\Sample.Helpers.Tests.csprojResolveAssemblyReference.cache
