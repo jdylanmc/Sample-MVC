@@ -1,0 +1,7 @@
+C:\git\snippets\webapi\Sample.Domain.Logic.Tests\bin\Debug\Sample.Domain.Logic.Tests.dll
+C:\git\snippets\webapi\Sample.Domain.Logic.Tests\bin\Debug\Sample.Domain.Logic.Tests.pdb
+C:\git\snippets\webapi\Sample.Domain.Logic.Tests\obj\Debug\Sample.Domain.Logic.Tests.dll
+C:\git\snippets\webapi\Sample.Domain.Logic.Tests\obj\Debug\Sample.Domain.Logic.Tests.pdb
+C:\git\snippets\webapi\Sample.Domain.Logic.Tests\bin\Debug\nunit.framework.dll
+C:\git\snippets\webapi\Sample.Domain.Logic.Tests\bin\Debug\nunit.framework.xml
+C:\git\snippets\webapi\Sample.Domain.Logic.Tests\obj\Debug\Sample.Domain.Logic.Tests.csprojResolveAssemblyReference.cache

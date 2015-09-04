@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Sample.Domain.Model.System.Log>
+
+<div class="container">
+    @foreach (var log in Model)
+    {
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                @log.Date
+                @log.Exception
+                @log.Id
+                @log.Level
+                @log.Logger
+                @log.Message
+                @log.Thread
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    }
+    
+</div>

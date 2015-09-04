@@ -1,0 +1,7 @@
+C:\git\snippets\webapi\Sample.Helpers\bin\Debug\Sample.Helpers.dll
+C:\git\snippets\webapi\Sample.Helpers\bin\Debug\Sample.Helpers.pdb
+C:\git\snippets\webapi\Sample.Helpers\obj\Debug\Sample.Helpers.dll
+C:\git\snippets\webapi\Sample.Helpers\obj\Debug\Sample.Helpers.pdb
+C:\git\snippets\webapi\Sample.Helpers\bin\Debug\log4net.dll
+C:\git\snippets\webapi\Sample.Helpers\bin\Debug\log4net.xml
+C:\git\snippets\webapi\Sample.Helpers\obj\Debug\Sample.Helpers.csprojResolveAssemblyReference.cache

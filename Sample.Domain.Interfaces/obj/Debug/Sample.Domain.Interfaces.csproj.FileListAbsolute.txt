@@ -1,0 +1,11 @@
+C:\git\snippets\webapi\Sample.Domain.Interfaces\bin\Debug\Sample.Domain.Interfaces.dll
+C:\git\snippets\webapi\Sample.Domain.Interfaces\bin\Debug\Sample.Domain.Interfaces.pdb
+C:\git\snippets\webapi\Sample.Domain.Interfaces\obj\Debug\Sample.Domain.Interfaces.csprojResolveAssemblyReference.cache
+C:\git\snippets\webapi\Sample.Domain.Interfaces\obj\Debug\Sample.Domain.Interfaces.dll
+C:\git\snippets\webapi\Sample.Domain.Interfaces\obj\Debug\Sample.Domain.Interfaces.pdb
+C:\git\snippets\webapi\Sample.Domain.Interfaces\bin\Debug\log4net.dll
+C:\git\snippets\webapi\Sample.Domain.Interfaces\bin\Debug\log4net.xml
+C:\git\snippets\webapi\Sample.Domain.Interfaces\bin\Debug\Sample.Domain.Model.dll
+C:\git\snippets\webapi\Sample.Domain.Interfaces\bin\Debug\Newtonsoft.Json.dll
+C:\git\snippets\webapi\Sample.Domain.Interfaces\bin\Debug\Sample.Domain.Model.pdb
+C:\git\snippets\webapi\Sample.Domain.Interfaces\bin\Debug\Newtonsoft.Json.xml
