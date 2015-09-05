@@ -3,6 +3,10 @@ A compilation of settings, technologies, and techniques which I've found to be u
 
 This project is structured in such a way as to promote testability and maintainability when your application reaches a decent size.  Additionally, I've included some of the common features that I always like to introduce into my web applications.
 
+Setup
+----
+This solution can be opened in Visual Studio 2013.  It is assumed that you have a SQL Server alias called "SampleDB" which points to a SQL Server that you have permissions to create databases on.  EF should automatically generate the database for you.  Set Sample.Web as your startup project and you can hit play in visual studio.
+
 Architecture
 ----
 I like to think that what I have is onion architecture, but sometimes I muddle concerns from other patterns like "ports and adapters" or "hexagonal" architecture. The general idea is to layer your application in such a way that interfaces are relied upon and implementation is injected at runtime.  In my version of onion architecture, we have the following layers:
