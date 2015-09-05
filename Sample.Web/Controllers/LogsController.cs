@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Sample.Domain.Interfaces;
+using Sample.Domain.Interfaces.System;
 
 namespace Sample.Web.Controllers
 {
@@ -19,7 +20,11 @@ namespace Sample.Web.Controllers
         // GET: Logs
         public ActionResult Index()
         {
-            var logs = logViewer.GetLogs();
+            // grab the last 20 logs.  add more actions to slice data in whatever way you want.
+
+            // also, you may want to break out a LogViewModel.
+
+            var logs = logViewer.GetLogs().OrderByDescending(x => x.Date).Take(20);
 
             return View(logs);
         }

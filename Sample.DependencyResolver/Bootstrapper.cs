@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.Unity;
 using Sample.Domain.Interfaces;
+using Sample.Domain.Interfaces.System;
 using Sample.Domain.Logic.System;
 using Unity.Mvc5;
 using Sample.Infrastructure.Configuration;
@@ -44,8 +45,10 @@ namespace Sample.DependencyResolver
 
             // register all interfaces and their implementations here
             container.RegisterType<IConfiguration, Configuration>();
-            container.RegisterType<IHttpAuditRepository, HttpAuditRepository>();
             container.RegisterType<ILogViewer, LogViewer>();
+
+            container.RegisterType<IHttpAuditRepository, HttpAuditRepository>();
+            container.RegisterType<ILogRepository, LogRepository>();
 
             // set up unity so that it lazily loads dependencies.  helps performance of web applications
             container.AddNewExtension<LazyExtension>();

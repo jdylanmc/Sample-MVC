@@ -1,21 +1,74 @@
-﻿@model IEnumerable<Sample.Domain.Model.System.Log>
+﻿@using Microsoft.Ajax.Utilities
+@model IEnumerable<Sample.Domain.Model.System.Log>
+
+<h4>Todo: add pagination, faceting, searching, etc.  style it as you will... or delete it.</h4>
 
 <div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <h4>Date</h4>
+        </div>
+        <div class="col-md-1">
+            <h4>Level</h4>
+        </div>
+        <div class="col-md-1">
+            <h4>Thread</h4>
+        </div>
+        <div class="col-md-8">
+            <h4>Details</h4>
+        </div>
+    </div>
+
     @foreach (var log in Model)
     {
         <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
+            <div class="col-md-2">
                 @log.Date
-                @log.Exception
-                @log.Id
+            </div>
+            <div class="col-md-1">
                 @log.Level
-                @log.Logger
-                @log.Message
+            </div>
+            <div class="col-md-1">
                 @log.Thread
             </div>
-            <div class="col-md-1"></div>
+            <div class="col-md-8">
+                @if (!log.Exception.IsNullOrWhiteSpace())
+                {
+                    <a href="#" class="logMessage" data-log_id="@log.Id">
+                        @log.Message    
+                    </a>
+                }
+                else
+                {
+                    @log.Message
+                }
+            </div>
         </div>
+        if (!log.Exception.IsNullOrWhiteSpace())
+        {
+            <div class="row logException" data-log_id="@log.Id" style="display: none">
+                <div class="col-md-12">
+                    <div class="well">
+                        @log.Exception
+                    </div>
+                </div>
+            </div>
+        }
     }
-    
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".logMessage").click(function (e) {
+                var logId = $(this).data('log_id');
+                
+                var exception = $(".logException[data-log_id='" + logId + "']");
+
+                if (exception.is(":visible")) {
+                    exception.slideUp();
+                } else {
+                    exception.slideDown();
+                }
+            });
+        });
+    </script>
 </div>

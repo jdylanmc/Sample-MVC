@@ -58,6 +58,10 @@
       <Project>{D9761183-D442-4E1F-BE83-56B28F936E76}</Project>
       <Name>Sample.Domain.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Sample.Infrastructure.Interfaces\Sample.Infrastructure.Interfaces.csproj">
+      <Project>{9A98D60B-3CB3-4221-B67F-FD15444DA8C9}</Project>
+      <Name>Sample.Infrastructure.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Business\" />
