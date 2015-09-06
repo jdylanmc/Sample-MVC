@@ -17,7 +17,7 @@ I like to think that what I have is onion architecture, but sometimes I muddle c
 * Sample.Web: This is a standard ASP.NET MVC layer and is the entrypoint into the application.
 * Tests/Sample.*.Tests: All domain services, relevant models, and infrastructure implementations should have corresponding unit test projects.  Because we use dependency injection, we can mock dependencies to make testing a breeze.  Without dependency injection, you're really just writing integration tests.
 
-Unit 3.x
+Unity 3.x
 ----
 Can be found in Sample.DependencyResolver.  Unity is used for dependency injection, and is the glue which bootstraps the entire application.  A lazy unity container is implemented to help with the efficiency of loading up dependencies.  The Entity Framework context is also configured to use a PerLifetimeResolver, which helps when executing threaded code in your web application.
 
