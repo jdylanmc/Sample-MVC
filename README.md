@@ -9,7 +9,7 @@ This solution can be opened in Visual Studio 2013.  It is assumed that you have 
 
 Architecture
 ----
-I like to think that what I have is onion architecture, but sometimes I muddle concerns from other patterns like "ports and adapters" or "hexagonal" architecture. The general idea is to layer your application in such a way that interfaces are relied upon and implementation is injected at runtime.  In my version of onion architecture, we have the following layers:
+I like to think that what I have is a pseudo onion architecture. The general idea is that this application is layered in such a way that interfaces are relied upon and implementation is injected at runtime.  In this application, we have the following layers:
 * Domain: This is the core of your application.  The Sample.Domain.* projects represent this concern, and are broken up into Model (business classes and objects), Interfaces (contracts for how to access and interact with those objects), and Logic (implementation of those interfaces).  The Sample.Domain.* projects should only ever reference Sample.Infrastructure.Interfaces and Sample.Helpers.
 * Sample.Helpers: This is where I put all my extension methods and utility classes that don't necessarily pertain to my domain model.
 * Sample.Infrastructure: This is where external dependencies live, such as database access, external api consumption, configuration, etc.  Interfaces are defined in Sample.Infrastructure.Interfaces, implementation is defined in the appropriate project, and implementation is injected via unity.
