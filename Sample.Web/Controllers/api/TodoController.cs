@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Sample.Domain.Interfaces.Business;
 using Sample.Domain.Model.Exceptions;
@@ -21,17 +22,17 @@ namespace Sample.Web.Controllers.api
         // GET api/todo
         public IHttpActionResult Get()
         {
-            var items = todoService.GetTodoList();
+            var items = todoService.GetTodoListAsync();
 
             return Ok(items);
         }
 
         // GET api/todo/5
-        public IHttpActionResult Get(int id)
+        public async Task<IHttpActionResult> Get(int id)
         {
             try
             {
-                var item = todoService.GetItem(id);
+                var item = await todoService.GetItemAsync(id);
 
                 return Ok(item);
             }

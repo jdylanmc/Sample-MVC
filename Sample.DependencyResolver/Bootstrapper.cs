@@ -1,20 +1,13 @@
-﻿using System;
-using System.Web.Http;
-using System.Web.Mvc;
-using Microsoft.Practices.ObjectBuilder2;
+﻿using System.Web.Http;
 using Microsoft.Practices.Unity;
-using Sample.Domain.Interfaces;
 using Sample.Domain.Interfaces.Business;
 using Sample.Domain.Interfaces.System;
 using Sample.Domain.Logic.Business;
 using Sample.Domain.Logic.System;
-using Unity.Mvc5;
 using Sample.Infrastructure.Configuration;
-using Sample.Infrastructure.Data;
 using Sample.Infrastructure.Interfaces;
-using Sample.Infrastructure.Interfaces.Repositories;
 using Sample.Infrastructure.Repository;
-using Sample.Infrastructure.Repository.Repositories;
+using Unity.Mvc5;
 
 namespace Sample.DependencyResolver
 {
@@ -23,7 +16,7 @@ namespace Sample.DependencyResolver
         public static IUnityContainer Initialize()
         {
             var container = BuildUnityContainer();
-            System.Web.Mvc.DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
+            System.Web.Mvc.DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
             return container;
         }

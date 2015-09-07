@@ -10,12 +10,12 @@ namespace Sample.Domain.Interfaces.Business
 {
     public interface ITodoService
     {
-        void Create(Todo item);
+        Task CreateAsync(Todo item);
 
-        void Delete(int id);
+        Task DeleteAsync(int id);
 
-        IEnumerable<Todo> GetTodoList();
+        Task<IEnumerable<Todo>> GetTodoListAsync();
         
-        Todo GetItem(int id);
+        Task<Todo> GetItemAsync(int id);
     }
 }

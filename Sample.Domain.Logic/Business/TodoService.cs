@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,33 +22,33 @@ namespace Sample.Domain.Logic.Business
             this.unitOfWork = unitOfWork;
         }
 
-        public void Create(Todo item)
+        public async Task CreateAsync(Todo item)
         {
             repository.Insert(item);
-            unitOfWork.Commit();
+            await unitOfWork.CommitAsync();
         }
 
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            var item = repository.Select().Where(x => x.Id == id).FirstOrDefault();
+            var item = await repository.GetAsync(id);
 
             if (item != null)
             {
                 repository.Delete(item);
-                unitOfWork.Commit();
+                await unitOfWork.CommitAsync();
             }
         }
 
-        public IEnumerable<Todo> GetTodoList()
+        public async Task<IEnumerable<Todo>> GetTodoListAsync()
         {
             // return the first 20 for now...
 
-            return repository.Select().Take(20);
+            return await repository.Select().Take(20).ToListAsync();
         }
 
-        public Todo GetItem(int id)
+        public async Task<Todo> GetItemAsync(int id)
         {
-            var item = repository.Select().FirstOrDefault(x => x.Id == id);
+            var item = await repository.GetAsync(id);
 
             if (item != null)
             {

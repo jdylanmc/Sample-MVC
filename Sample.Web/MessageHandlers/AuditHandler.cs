@@ -41,7 +41,7 @@ namespace Sample.Web.MessageHandlers
             {
                 auditRepo.Insert(httpAudit);
                 
-                unitOfWork.Commit();
+                await unitOfWork.CommitAsync();
             }
             catch (Exception e)
             {

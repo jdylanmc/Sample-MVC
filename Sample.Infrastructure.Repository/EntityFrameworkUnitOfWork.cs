@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Threading.Tasks;
 using Sample.Infrastructure.Interfaces;
 
 namespace Sample.Infrastructure.Repository
@@ -16,10 +17,15 @@ namespace Sample.Infrastructure.Repository
         {
             return entityFrameworkContext.Set<T>();
         }
-
+        
         public void Commit()
         {
             entityFrameworkContext.SaveChanges();
+        }
+
+        public async Task CommitAsync()
+        {
+            await entityFrameworkContext.SaveChangesAsync();
         }
 
         public void Dispose()

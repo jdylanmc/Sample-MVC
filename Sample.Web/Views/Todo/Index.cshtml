@@ -23,7 +23,7 @@
 </div>
 
 @{
-    var lastItem = Model.Last();
+    var lastItem = Model.Any() ? Model.Last() : null;
 }
 
 @foreach (var item in Model)

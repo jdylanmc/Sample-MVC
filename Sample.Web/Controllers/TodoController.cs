@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Sample.Domain.Interfaces.Business;
@@ -17,9 +18,9 @@ namespace Sample.Web.Controllers
             this.todoService = todoService;
         }
 
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var todoList = todoService.GetTodoList();
+            var todoList = await todoService.GetTodoListAsync();
 
             return View(todoList);
         }
@@ -30,11 +31,11 @@ namespace Sample.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Todo todo)
+        public async Task<ActionResult> Create(Todo todo)
         {
             if (ModelState.IsValid)
             {
-                todoService.Create(todo);
+                await todoService.CreateAsync(todo);
 
                 return RedirectToAction("Index");                
             }
@@ -42,9 +43,9 @@ namespace Sample.Web.Controllers
             return View(todo);
         }
 
-        public ActionResult Resolve(int id)
+        public async Task<ActionResult> Resolve(int id)
         {
-            todoService.Delete(id);
+            await todoService.DeleteAsync(id);
 
             return RedirectToAction("Index");
         }
