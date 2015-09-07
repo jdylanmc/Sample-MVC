@@ -5,27 +5,46 @@ using System.Web;
 using System.Web.Mvc;
 using Sample.Domain.Interfaces;
 using Sample.Domain.Interfaces.System;
+using Sample.Domain.Model.System;
+using Sample.Infrastructure.Interfaces;
 
 namespace Sample.Web.Controllers
 {
     public class LogsController : Controller
     {
-        private ILogViewer logViewer;
+        // private ILogViewer logViewer;
+        // 
+        // public LogsController(ILogViewer logViewer)
+        // {
+        //     this.logViewer = logViewer;
+        // }
+        // 
+        // // GET: Logs
+        // public ActionResult Index()
+        // {
+        //     // grab the last 20 logs.  add more actions to slice data in whatever way you want.
+        // 
+        //     // also, you may want to break out a LogViewModel.
+        // 
+        //     var logs = logViewer.GetLogs().OrderByDescending(x => x.Date).Take(20);
+        // 
+        //     return View(logs);
+        // }
+        private IRepository<Log> logRepo;
 
-        public LogsController(ILogViewer logViewer)
+        public LogsController(IRepository<Log> logRepository)
         {
-            this.logViewer = logViewer;
+            this.logRepo = logRepository;
         }
 
-        // GET: Logs
         public ActionResult Index()
         {
             // grab the last 20 logs.  add more actions to slice data in whatever way you want.
-
+        
             // also, you may want to break out a LogViewModel.
-
-            var logs = logViewer.GetLogs().OrderByDescending(x => x.Date).Take(20);
-
+        
+            var logs = logRepo.Select().OrderByDescending(x => x.Date).Take(20);
+        
             return View(logs);
         }
     }

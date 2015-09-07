@@ -10,13 +10,13 @@ namespace Sample.Infrastructure.Repository.Repositories
 {
     public class LogRepository : AbstractRepository, ILogRepository
     {
-        public LogRepository(EntityContext context)
-            : base(context) { }
+        public LogRepository(EntityFrameworkContext entityContext)
+            : base(entityContext) { }
 
         // be mindful that IQueryable's can be modified and will persist
         public IQueryable<Log> Select()
         {
-            return base.context.Log;
+            return base.entityContext.Log;
         }
     }
 }

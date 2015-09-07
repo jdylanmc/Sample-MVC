@@ -24,7 +24,7 @@ namespace Sample.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            Bootstrapper.InitializeWeb();
+            Bootstrapper.Initialize();
 
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 

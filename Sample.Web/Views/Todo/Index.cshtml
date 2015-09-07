@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Sample.Domain.Model.Business.Todo>
+
+@{
+    ViewBag.Title = "Todo List";
+}
+
+<div class="jumbotron">
+    <p>A Sample TODO MVC App</p>
+</div>
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <a href="@Url.Action("Create", "Todo")" class="btn btn-primary btn-lg pull-right">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">&nbsp;</div>
+</div>
+
+@{
+    var lastItem = Model.Last();
+}
+
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-1">
+            <div class="pull-right">
+                <a href="@Url.Action("Resolve", "Todo", new {id = item.Id})" class="btn btn-success">
+                    <span class="glyphicon glyphicon-check"></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <strong>@item.Title</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @item.Description
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    if (item != lastItem)
+    {
+        <div class="row">
+            <div class="col-md-3">
+                &nbsp;
+            </div>
+            <div class="col-md-6">
+                <hr/>
+            </div>
+            <div class="col-md-3">
+                &nbsp;
+            </div>
+        </div>
+    }
+}

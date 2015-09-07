@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 
-namespace Sample.Web.Controllers
+namespace Sample.Web.Controllers.api
 {
     public class ValuesController : ApiController
     {

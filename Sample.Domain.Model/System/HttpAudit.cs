@@ -27,7 +27,11 @@ namespace Sample.Domain.Model.System
             var responseHeaders = response.Headers.ToDictionary(header => header.Key, header => header.Value.ToArray());
             this.ResponseHeaders = JsonConvert.SerializeObject(responseHeaders);
 
-            ResponseContent = response.Content.ReadAsStringAsync().Result;
+            if (response.Content != null)
+            {
+                ResponseContent = response.Content.ReadAsStringAsync().Result;
+            }
+            
 
             ResponseStatusCode = (int)response.StatusCode;
         }

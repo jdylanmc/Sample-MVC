@@ -11,8 +11,8 @@ namespace Sample.Infrastructure.Repository.Repositories
 {
     public class HttpAuditRepository : AbstractRepository, IHttpAuditRepository
     {
-        public HttpAuditRepository(EntityContext context)
-            : base(context) { }
+        public HttpAuditRepository(EntityFrameworkContext entityContext)
+            : base(entityContext) { }
         
         private ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -20,9 +20,9 @@ namespace Sample.Infrastructure.Repository.Repositories
         {
             try
             {
-                context.HttpAudit.Add(httpAudit);
+                entityContext.HttpAudit.Add(httpAudit);
 
-                await context.SaveChangesAsync();
+                await entityContext.SaveChangesAsync();
             }
             catch (DbEntityValidationException e)
             {

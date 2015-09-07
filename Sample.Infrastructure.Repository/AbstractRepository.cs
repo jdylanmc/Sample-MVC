@@ -12,16 +12,16 @@ namespace Sample.Infrastructure.Repository
 {
     public class AbstractRepository : IDisposable
     {
-        protected EntityContext context;
+        protected EntityFrameworkContext entityContext;
 
-        public AbstractRepository(EntityContext context)
+        public AbstractRepository(EntityFrameworkContext entityContext)
         {
-            this.context = context;
+            this.entityContext = entityContext;
         }
 
         public virtual void Save()
         {
-            context.SaveChanges();
+            entityContext.SaveChanges();
         }
 
         private bool disposed = false;
@@ -32,7 +32,7 @@ namespace Sample.Infrastructure.Repository
             {
                 if (disposing)
                 {
-                    context.Dispose();
+                    entityContext.Dispose();
                 }
                 this.disposed = true;
             }
@@ -47,7 +47,7 @@ namespace Sample.Infrastructure.Repository
         // adapted from http://elegantcode.com/2012/01/26/sqlbulkcopy-for-generic-listt-useful-for-entity-framework-nhibernate/
         public void BulkInsert<T>(string tableName, IList<T> list)
         {
-            using (var bulkCopy = new SqlBulkCopy(context.Database.Connection.ConnectionString.ToString()))
+            using (var bulkCopy = new SqlBulkCopy(entityContext.Database.Connection.ConnectionString.ToString()))
             {
                 bulkCopy.BatchSize = list.Count;
                 bulkCopy.DestinationTableName = tableName;

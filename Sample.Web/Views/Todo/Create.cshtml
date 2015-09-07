@@ -1,0 +1,35 @@
+﻿@model Sample.Domain.Model.Business.Todo
+
+@{
+  ViewBag.Title = "Create Todo Item";
+}
+
+
+@using (Html.BeginForm("Create", "Todo", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            @Html.ValidationSummary(true, "Please complete all required fields")
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+            Title:
+        </div>
+        <div class="col-md-8">@Html.TextBoxFor(m => m.Title)</div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+            Description:
+        </div>
+        <div class="col-md-8">@Html.TextAreaFor(m => m.Description)</div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <input type="submit" class="btn" />
+}
