@@ -2,6 +2,7 @@
 A compilation of settings, technologies, and techniques which I've found to be useful together.
 
 To run this application: 
+
 1. Create a SQL Alias for SampleDB.
 2. Open the solution in Visual Studio 2013 (2015 may also work).  
 3. In the Nuget package manager, run "Update-Database"
