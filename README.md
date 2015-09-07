@@ -1,6 +1,12 @@
 # A sample MVC application architecture
 A compilation of settings, technologies, and techniques which I've found to be useful together.
 
+To run this application: 
+1. Create a SQL Alias for SampleDB.
+2. Open the solution in Visual Studio 2013 (2015 may also work).  
+3. In the Nuget package manager, run "Update-Database"
+4. Hit play in visual studio
+
 This project is structured in such a way as to promote testability and maintainability when your application reaches a decent size.  Additionally, I've included some of the common features that I always like to introduce into my web applications.
 
 Setup

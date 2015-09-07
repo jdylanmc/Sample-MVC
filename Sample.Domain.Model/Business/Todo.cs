@@ -8,10 +8,15 @@ namespace Sample.Domain.Model.Business
         public Todo()
         { }
 
-        public Todo(string description, string title)
+        public Todo(string title, string description)
         {
             this.Title = title;
             this.Description = description;
+        }
+
+        public Todo(string title)
+        {
+            this.Title = title;
         }
 
         public int Id { get; set; }

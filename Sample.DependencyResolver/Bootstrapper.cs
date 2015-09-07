@@ -38,10 +38,6 @@ namespace Sample.DependencyResolver
 
             container.RegisterType<ITodoService, TodoService>();
             
-
-            // set up unity so that it lazily loads dependencies.  helps performance of web applications
-            container.AddNewExtension<LazyExtension>();
-
             return container;
         }
     }

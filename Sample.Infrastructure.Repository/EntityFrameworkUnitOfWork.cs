@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Threading.Tasks;
 using Sample.Infrastructure.Interfaces;
 

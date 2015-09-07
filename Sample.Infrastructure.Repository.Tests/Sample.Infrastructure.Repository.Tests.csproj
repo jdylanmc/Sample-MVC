@@ -7,7 +7,7 @@
     <ProjectGuid>{E39CA491-9783-4100-96C1-E9119E6F5801}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sample.Infrastructure.Data.Tests</RootNamespace>
+    <RootNamespace>Sample.Infrastructure.Repository.Tests</RootNamespace>
     <AssemblyName>Sample.Infrastructure.Repository.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -70,6 +70,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sample.DependencyResolver\Sample.DependencyResolver.csproj">
+      <Project>{BCA740EA-326E-43EE-A613-CA4B12EBA83A}</Project>
+      <Name>Sample.DependencyResolver</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sample.Infrastructure.Interfaces\Sample.Infrastructure.Interfaces.csproj">
       <Project>{9A98D60B-3CB3-4221-B67F-FD15444DA8C9}</Project>
       <Name>Sample.Infrastructure.Interfaces</Name>
