@@ -20,25 +20,13 @@ namespace Sample.DependencyResolver.Tests
             var target = Bootstrapper.Initialize();
 
             //act
-            var repository = target.Resolve<IRepository<Todo>>();
+            var repository = target.Resolve<EntityFrameworkContext>();
 
             // assert
             repository.Should().NotBeNull();
-            repository.Should().BeOfType<EntityFrameworkRepository<Todo>>();
+            repository.Should().BeOfType<EntityFrameworkContext>();
         }
 
-        [Test]
-        public void CanResolveUnitOfWork()
-        {
-            var target = Bootstrapper.Initialize();
-
-            //act
-            var repository = target.Resolve<IUnitOfWork>();
-
-            // assert
-            repository.Should().NotBeNull();
-            repository.Should().BeOfType<EntityFrameworkUnitOfWork>();
-        }
 
         [Test]
         public void CanResolveConfiguration()

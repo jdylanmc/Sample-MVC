@@ -6,6 +6,13 @@ using Sample.Infrastructure.Data;
 
 namespace Sample.Infrastructure.Repository
 {
+    /// <summary>
+    /// There is no need to wrap EntityFramework up in some bogus IRepository, it already IS a repository!
+    /// 
+    /// Any really, how many times have you had to swap out an entire DAL layer?
+    /// 
+    /// Not to mention, the "context" object itself is your transaction manager... right?
+    /// </summary>
     [DbConfigurationType(typeof(CustomDbConfiguration))]
     public class EntityFrameworkContext : DbContext
     {

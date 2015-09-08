@@ -7,8 +7,8 @@
     <ProjectGuid>{F52A5176-2B59-4D16-8DAA-50D2A22B0723}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sample.Helpers</RootNamespace>
-    <AssemblyName>Sample.Helpers</AssemblyName>
+    <RootNamespace>Sample.Common</RootNamespace>
+    <AssemblyName>Sample.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

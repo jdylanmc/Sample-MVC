@@ -6,6 +6,6 @@ namespace Sample.Domain.Interfaces.System
 {
     public interface ILogViewer
     {
-        IQueryable<Log> GetLogs();
+        IEnumerable<Log> GetLogs();
     }
 }

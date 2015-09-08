@@ -8,47 +8,54 @@ using Sample.Domain.Interfaces.Business;
 using Sample.Domain.Model.Business;
 using Sample.Domain.Model.Exceptions;
 using Sample.Infrastructure.Interfaces;
+using Sample.Infrastructure.Repository;
 
 namespace Sample.Domain.Logic.Business
 {
     public class TodoService : ITodoService
     {
-        private IRepository<Todo> repository;
-        private IUnitOfWork unitOfWork;
+        private EntityFrameworkContext context;
 
-        public TodoService(IRepository<Todo> repo, IUnitOfWork unitOfWork)
+        public TodoService(EntityFrameworkContext entityFrameworkContext)
         {
-            this.repository = repo;
-            this.unitOfWork = unitOfWork;
+            this.context = entityFrameworkContext;
         }
 
         public async Task CreateAsync(Todo item)
         {
-            repository.Insert(item);
-            await unitOfWork.CommitAsync();
+            context.Todo.Add(item);
+
+            await context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
         {
-            var item = await repository.GetAsync(id);
+            var item = await context.Todo.FindAsync(id);
 
             if (item != null)
             {
-                repository.Delete(item);
-                await unitOfWork.CommitAsync();
+                context.Todo.Remove(item);
+                await context.SaveChangesAsync();
             }
         }
 
-        public async Task<IEnumerable<Todo>> GetTodoListAsync()
+        public async Task UpdateAsync(Todo item)
+        {
+            context.Entry<Todo>(item).State = EntityState.Modified;
+
+            await context.SaveChangesAsync();
+        }
+
+        public async Task<List<Todo>> GetTodoListAsync()
         {
             // return the first 20 for now...
 
-            return await repository.Select().Take(20).ToListAsync();
+            return await context.Todo.ToListAsync();
         }
 
         public async Task<Todo> GetItemAsync(int id)
         {
-            var item = await repository.GetAsync(id);
+            var item = await context.Todo.FindAsync(id);
 
             if (item != null)
             {

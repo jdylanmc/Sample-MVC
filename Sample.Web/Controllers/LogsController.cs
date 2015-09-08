@@ -30,11 +30,12 @@ namespace Sample.Web.Controllers
         // 
         //     return View(logs);
         // }
-        private IRepository<Log> logRepo;
 
-        public LogsController(IRepository<Log> logRepository)
+        private ILogViewer logViewer;
+
+        public LogsController(ILogViewer logViewer)
         {
-            this.logRepo = logRepository;
+            this.logViewer = logViewer;
         }
 
         public ActionResult Index()
@@ -42,8 +43,8 @@ namespace Sample.Web.Controllers
             // grab the last 20 logs.  add more actions to slice data in whatever way you want.
         
             // also, you may want to break out a LogViewModel.
-        
-            var logs = logRepo.Select().OrderByDescending(x => x.Date).Take(20);
+
+            var logs = logViewer.GetLogs();
         
             return View(logs);
         }

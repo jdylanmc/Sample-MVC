@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using log4net;
+using Sample.Domain.Interfaces.System;
 using Sample.Domain.Model.System;
 using Sample.Infrastructure.Interfaces;
 
@@ -12,8 +13,7 @@ namespace Sample.Web.MessageHandlers
 {
     public class AuditHandler : DelegatingHandler
     {
-        private IRepository<HttpAudit> auditRepo;
-        private IUnitOfWork unitOfWork;
+        private IHttpAuditService httpAuditService;
 
         private ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -21,8 +21,7 @@ namespace Sample.Web.MessageHandlers
         {
             // DelegatingHandlers are only initialized once in Web API (at application start), so we will use
             // the MVC dependency resolver registered in the global to pull in the necessary impl's
-            this.auditRepo = System.Web.Mvc.DependencyResolver.Current.GetService<IRepository<HttpAudit>>();
-            this.unitOfWork = System.Web.Mvc.DependencyResolver.Current.GetService<IUnitOfWork>();
+            this.httpAuditService = System.Web.Mvc.DependencyResolver.Current.GetService<IHttpAuditService>();
         }
         
         protected async override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
@@ -37,20 +36,9 @@ namespace Sample.Web.MessageHandlers
 
             var httpAudit = new HttpAudit(request, contentInString, response);
 
-            try
-            {
-                auditRepo.Insert(httpAudit);
-                
-                await unitOfWork.CommitAsync();
-            }
-            catch (Exception e)
-            {
-                log.Error("Exception occurred when inserting audit message to repo", e); 
-                
-                // swallow the exception, or throw it depending on your needs/requirements
 
-                throw;
-            }
+            await httpAuditService.AuditHttpTraffic(httpAudit);
+            
 
             // should this be above the inserts?
             await base.SendAsync(request, cancellationToken);

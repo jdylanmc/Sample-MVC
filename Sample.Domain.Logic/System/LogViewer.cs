@@ -8,24 +8,24 @@ using log4net.Repository;
 using Sample.Domain.Interfaces;
 using Sample.Domain.Interfaces.System;
 using Sample.Domain.Model.System;
-using Sample.Infrastructure.Interfaces.Repositories;
+using Sample.Infrastructure.Repository;
 
 namespace Sample.Domain.Logic.System
 {
     public class LogViewer : ILogViewer
     {
-        private ILogRepository logRepository;
+        private EntityFrameworkContext context;
 
-        public LogViewer(ILogRepository logRepository)
+        public LogViewer(EntityFrameworkContext context)
         {
-            this.logRepository = logRepository;
+            this.context = context;
         }
 
-        public IQueryable<Log> GetLogs()
+        public IEnumerable<Log> GetLogs()
         {
             // this is where you would assert that the user has permissions to view logs
 
-            return logRepository.Select();
+            return context.Log.OrderByDescending(x => x.Date).Take(20);
         }
     }
 }

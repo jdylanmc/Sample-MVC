@@ -29,12 +29,11 @@ namespace Sample.DependencyResolver
             // incredibly useful if you're doing parallel programming.  It also makes your UnitOfWork be a single
             // object in memory, which is helpful for orchestrating data manipulations before a commit
             container.RegisterType<EntityFrameworkContext>(new PerResolveLifetimeManager());
-            container.RegisterType<IUnitOfWork, EntityFrameworkUnitOfWork>();
-            container.RegisterType(typeof(IRepository<>), typeof(EntityFrameworkRepository<>)); 
 
             // register all interfaces and their implementations here
             container.RegisterType<IConfiguration, Configuration>();
             container.RegisterType<ILogViewer, LogViewer>();
+            container.RegisterType<IHttpAuditService, HttpAuditService>();
 
             container.RegisterType<ITodoService, TodoService>();
             

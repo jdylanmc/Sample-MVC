@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\ITodoService.cs" />
+    <Compile Include="System\IHttpAuditService.cs" />
     <Compile Include="System\ILogViewer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -14,7 +14,9 @@ namespace Sample.Domain.Interfaces.Business
 
         Task DeleteAsync(int id);
 
-        Task<IEnumerable<Todo>> GetTodoListAsync();
+        Task UpdateAsync(Todo item);
+
+        Task<List<Todo>> GetTodoListAsync();
         
         Task<Todo> GetItemAsync(int id);
     }

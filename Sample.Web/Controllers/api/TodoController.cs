@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Sample.Domain.Interfaces.Business;
+using Sample.Domain.Model.Business;
 using Sample.Domain.Model.Exceptions;
 
 namespace Sample.Web.Controllers.api
@@ -20,9 +17,9 @@ namespace Sample.Web.Controllers.api
         }
 
         // GET api/todo
-        public IHttpActionResult Get()
+        public async Task<IHttpActionResult> Get()
         {
-            var items = todoService.GetTodoListAsync();
+            var items = await todoService.GetTodoListAsync();
 
             return Ok(items);
         }
@@ -44,6 +41,32 @@ namespace Sample.Web.Controllers.api
             {
                 return InternalServerError(e);
             }
+        }
+
+        // POST api/todo
+        public async Task<IHttpActionResult> Post(Todo item)
+        {
+            await todoService.CreateAsync(item);
+
+            return Ok();
+        }
+
+        // PUT api/todo/5
+        [HttpPut]
+        public async Task<IHttpActionResult> Put(Todo item)
+        {
+            await todoService.UpdateAsync(item);
+
+            return Ok();
+        }
+
+        // DELETE api/todo/5
+        [HttpDelete]
+        public async Task<IHttpActionResult> Delete(int id)
+        {
+            await todoService.DeleteAsync(id);
+
+            return Ok();
         }
     }
 }

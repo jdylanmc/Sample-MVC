@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Business\TodoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\HttpAuditService.cs" />
     <Compile Include="System\LogViewer.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +73,10 @@
     <ProjectReference Include="..\Sample.Infrastructure.Interfaces\Sample.Infrastructure.Interfaces.csproj">
       <Project>{9A98D60B-3CB3-4221-B67F-FD15444DA8C9}</Project>
       <Name>Sample.Infrastructure.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.Infrastructure.Repository\Sample.Infrastructure.Repository.csproj">
+      <Project>{BBC23347-64EC-4A2A-A371-1F13549F37FF}</Project>
+      <Name>Sample.Infrastructure.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

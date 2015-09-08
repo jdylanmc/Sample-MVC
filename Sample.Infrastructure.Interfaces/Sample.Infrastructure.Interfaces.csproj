@@ -44,11 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IConfiguration.cs" />
-    <Compile Include="IRepository.cs" />
-    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\IHttpAuditRepository.cs" />
-    <Compile Include="Repositories\ILogRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
